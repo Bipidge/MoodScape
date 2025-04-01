@@ -8,4 +8,16 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
+
+    <!-- Emotion Gradient Colors (Examples) -->
+    <color name="emotion_happy_start">#66FFAA</color>
+    <color name="emotion_happy_end">#00C853</color>
+    <color name="emotion_calm_start">#81D4FA</color> <!-- Light Blue -->
+    <color name="emotion_calm_end">#03A9F4</color>   <!-- Blue -->
+    <color name="emotion_sad_start">#90CAF9</color> <!-- Blue Grey Light -->
+    <color name="emotion_sad_end">#546E7A</color>   <!-- Blue Grey Dark -->
+    <color name="emotion_angry_start">#FF8A80</color> <!-- Light Red -->
+    <color name="emotion_angry_end">#D50000</color>   <!-- Red -->
+    <color name="emotion_default_start">#BDBDBD</color> <!-- Grey -->
+    <color name="emotion_default_end">#616161</color>   <!-- Dark Grey -->
 </resources>

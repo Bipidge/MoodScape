@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
     <!-- Add Internet permission if not already present (Required for Firebase) -->
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -15,27 +14,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Moodscape1"
         tools:targetApi="31">
-
+        <activity
+            android:name=".MoodEntryAdapter"
+            android:exported="false" />
         <!-- Signup Activity -->
         <activity
             android:name=".authentication.Signup"
-            android:exported="false" />
-
-        <!-- SignIn Activity - Now the entry point -->
+            android:exported="false" /> <!-- SignIn Activity - Now the entry point -->
         <activity
             android:name=".authentication.SignIn"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- MainActivity - Hosts fragments after login -->
+        </activity> <!-- MainActivity - Hosts fragments after login -->
         <activity
             android:name=".MainActivity"
             android:exported="false" />
-
     </application>
 
 </manifest>
