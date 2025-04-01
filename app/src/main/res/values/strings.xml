@@ -4,4 +4,17 @@
     <string name="close_nav">Close Navigation Drawer</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Add these Strings for DayEntries Fragment -->
+    <string name="error_loading_display">Error setting up display.</string>
+    <string name="error_title">Error</string>
+    <string name="entries_for_selected_date">Entries for selected date</string>
+    <string name="login_required_to_load">Login required to load entries.</string>
+    <string name="login_or_error_loading">Login required or error loading.</string>
+    <string name="no_entries_for_day">No mood entries recorded on this day.</string>
+    <string name="error_loading_entries">Error loading entries.</string>
+
+    <string name="reminder_channel_name">Mood Entry Reminders</string>
+    <string name="reminder_channel_description">Sends daily reminders to log your mood.</string>
+
 </resources>

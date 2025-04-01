@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <!-- Add Internet permission if not already present (Required for Firebase) -->
+
+    <!-- Internet required for Firebase -->
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Required for Notifications (Android 13+) -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
+    <!-- Required for scheduling alarms (Needed for API 31+) -->
+    <!-- Check if USE_EXACT_ALARM is more appropriate if exact timing needed, requires separate approval -->
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
+    <!-- Required for receiving alarm even if app is not running-->
+    <!-- uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/ --> <!-- Add later if boot persistence needed -->
+
 
     <application
         android:allowBackup="true"
@@ -13,26 +24,47 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Moodscape1"
-        tools:targetApi="31">
-        <activity
-            android:name=".MoodEntryAdapter"
-            android:exported="false" />
-        <!-- Signup Activity -->
+        tools:targetApi="33"> <!-- Target API adjusted for permissions -->
+
+        <!-- Activities -->
         <activity
             android:name=".authentication.Signup"
-            android:exported="false" /> <!-- SignIn Activity - Now the entry point -->
+            android:exported="false" />
         <activity
             android:name=".authentication.SignIn"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- MainActivity - Hosts fragments after login -->
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+
+        <!-- NEW: About Us Activity -->
+        <activity
+            android:name=".AboutUs"
+            android:exported="false"
+            android:label="About Us"
+            android:parentActivityName=".MainActivity" >
+            <!-- Provides UP navigation -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
+        <!-- NEW: Broadcast Receiver for Notifications -->
+        <receiver android:name=".notifications.ReminderBroadcastReceiver" android:enabled="true" android:exported="false"/>
+
+        <!-- Old MoodEntryAdapter Activity Declaration - Remove this if MoodEntryAdapter is just an Adapter Class -->
+        <!--<activity
+            android:name=".MoodEntryAdapter"
+            android:exported="false" />-->
+        <!-- NOTE: Your AndroidManifest previously listed MoodEntryAdapter as an Activity. -->
+        <!-- This is almost certainly incorrect. It's an adapter, not a screen. -->
+        <!-- I have commented it out. If you DID intend it as an activity, reconsider the app structure. -->
+
     </application>
 
 </manifest>
